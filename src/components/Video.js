@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Video = ({thumbnail, title, dateAdded, channel, description, rate}) => {
+const Video = ({id, thumbnail, deleteItem, title, dateAdded, channel, description, rate}) => {
     const [stars, setStars] = useState(rate); //HOOK
     const [active, setActive] = useState(false);
 
@@ -20,6 +20,7 @@ const Video = ({thumbnail, title, dateAdded, channel, description, rate}) => {
             </div>
             <div className="video-info">
             <h3>{title}</h3>
+            <button onClick={() => deleteItem(id)}>Delete this video</button>
             <span>{stars} stars</span> | <button onClick={rateVideo}>Rate this video</button>
             <p>Upload date: {dateAdded}</p>
             <h4>Channel's Title: {channel}</h4>
